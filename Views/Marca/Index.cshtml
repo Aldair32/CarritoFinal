@@ -1,0 +1,94 @@
+﻿@model IEnumerable<CarritoFinal.Models.Marca>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+<script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css" />
+
+
+
+<ol class="breadcrumb mb-4 mt-4">
+    <li class="breadcrumb-item"><a href="index.html">Mantenimiento</a></li>
+    <li class="breadcrumb-item active">Marca</li>
+</ol>
+
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-users me-1"></i> Lista de Marcas
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <!--Toma el total de columnas de 12-->
+                <button type="button" class="btn btn-info"><a asp-action="Nuevo">Crear Nuevo</a></button>
+            </div>
+        </div>
+
+        <table id="tabla" class="display cell-border display responsive nowrap" style=" width:100%">
+            <thead>
+                <tr>
+                    <th>Codigo Marca </th>
+                    <th>Descripción </th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CdMarca</td>
+                        <td>@item.Descripcion</td>
+                        <td class="text-center">
+                            @if (item.Activo.HasValue && item.Activo.Value)
+                            {
+                                <span><span class="badge bg-success">Activo</span></span>
+                            }
+                            else
+                            {
+                                <span><span class="badge bg-danger">Inactivo</span></span>
+                            }
+                        </td>
+                        <td data-orderable="false" data-searchable="false" style="width: 90px;">
+
+                            <a asp-action="Eliminar" asp-route-id="@item.CdMarca"> <button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash me-1"></i> </button> </a>
+
+
+
+                            <a asp-action="Editar" asp-route-id="@item.CdMarca"><button type="button" class="btn btn-primary btn-sm btn-editar"> <i class="fas fa-pen me-1"></i></button></a>
+
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        let table = new DataTable('#tabla', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+                responsive: true,
+            },
+        });
+
+
+    </script>
+}

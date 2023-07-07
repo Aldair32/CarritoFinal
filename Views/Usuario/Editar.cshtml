@@ -1,0 +1,41 @@
+﻿@model CarritoFinal.Models.Usuario
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<html>
+<head>
+</head>
+<body>
+    <form asp-controller="Usuario" asp-action="editarUsuario" method="post">
+
+        <legend>Editar</legend>
+        <div class="mb-3">
+            
+            <input type="hidden" asp-for="CdUsuario" id="txtcodigo" class="form-control" placeholder="Codigo Cliente">
+        </div>
+        <div class="mb-3">
+            <label for="txtnombres" class="form-label">Nombres</label>
+            <input  asp-for="Nombres" id="txtnombres" class="form-control" placeholder="Nombres">
+        </div>
+        <div class="mb-3">
+            <label for="txtapellidos" class="form-label">Apellidos</label>
+            <input  asp-for="Apellidos" id="txtapellidos" class="form-control" placeholder="Apellidos">
+        </div>
+        <div class="mb-3">
+            <label for="txtcorreo" class="form-label">Correo</label>
+            <input  asp-for="Correo" id="txtcorreo" class="form-control" placeholder="Correo">
+        </div>
+        <div class="mb-3">
+            <label for="cboactivo" class="form-label">Estado</label>
+            <select id="cboactivo" class="form-select" asp-for="Activo">
+                <option value="True">Activo</option>
+                <option value="False">Inactivo</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Modificar</button>
+    </form>
+</body>
+</html>

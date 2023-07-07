@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="juan1diaz-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\USUARIO\\OneDrive\ -\ Universidad\ San\ Ignacio\ de\ Loyola\\USIL-2023\\DESARROLLO_BASADO_EN_PLATAFORMAS\\Proyecto\\Proyecto_Carrito\\CarritoFinal\\CarritoFinal\\obj\\Release\\net7\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
